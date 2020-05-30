@@ -4,9 +4,32 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Store.Views.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             mc:Ignorable="d"
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Style="{DynamicResource MaterialControl}"
+             FontFamily="{materialDesign:MaterialDesignFont}"
+             
+             d:DesignHeight="35" d:DesignWidth="800">
+    <Grid Height="auto" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Style="{DynamicResource MaterialDesignOutlinedButton}"/>
+
+        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Width="50" Grid.Column="1">
+            <materialDesign:PackIcon Kind="Minus"/>
+        </Button>
+        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Width="50" Grid.Column="2">
+            <materialDesign:PackIcon Kind="ArrowExpand"/>
+        </Button>
+        <Button Style="{DynamicResource MaterialDesignToolButton}" Width="50" Grid.Column="3">
+            <materialDesign:PackIcon Kind="Close"/>
+        </Button>
+
     </Grid>
 </UserControl>
