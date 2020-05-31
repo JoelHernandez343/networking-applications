@@ -13,7 +13,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
         
-        Title="AboutWindow" Height="450" Width="800">
+        Title="AboutWindow" Height="460" Width="350">
     <Border BorderBrush="#424242" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
@@ -23,6 +23,39 @@
 
             <uc:BarWindowControl/>
             <uc:TitleBarWindow Title="Sobre" HorizontalCenterTitle="True" ShowAbout="False"/>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Border CornerRadius="500" Width="200" Height="200">
+                    <Border.Background>
+                        <ImageBrush ImageSource="../Assets/Images/joel.jpg" Stretch="UniformToFill"/>
+                    </Border.Background>
+                </Border>
+
+                <StackPanel Grid.Row="1" Margin="15">
+
+                    <TextBlock Text="Joel Harim Hernández Javier" HorizontalAlignment="Center" Margin="0 10 0 0"/>
+
+                    <Separator Style="{DynamicResource MaterialDesignLightSeparator}" Margin="10"/>
+
+                    <materialDesign:Chip HorizontalAlignment="Center" x:Name="GithubLink" Click="GithubLink_Click">
+                        <materialDesign:Chip.Icon>
+                            <materialDesign:PackIcon Kind="Github"/>
+                        </materialDesign:Chip.Icon>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Github:" Margin="0 0 8 0"/>
+                            <TextBlock Text="JoelHernandez343" FontWeight="Normal"/>
+                        </StackPanel>
+                        
+                    </materialDesign:Chip>
+                </StackPanel>
+                
+            </Grid>
         </Grid>
     </Border>
 </Window>

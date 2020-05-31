@@ -23,5 +23,10 @@ namespace Store.Views
         {
             InitializeComponent();
         }
+
+        private void GithubLink_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/JoelHernandez343");
+        }
     }
 }
