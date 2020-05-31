@@ -16,22 +16,21 @@ using System.Windows.Shapes;
 namespace Store.Views.Controls
 {
     /// <summary>
-    /// Interaction logic for PrevControl.xaml
+    /// Interaction logic for CarruselItemControl.xaml
     /// </summary>
-    public partial class PrevControl : UserControl
+    public partial class CarruselItemControl : UserControl
     {
-        public PrevControl()
+        InfoWindow InfoWindow;
+
+        public CarruselItemControl()
         {
             InitializeComponent();
+            InfoWindow = Window.GetWindow(this) as InfoWindow;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var info = new InfoWindow
-            {
-                Owner = Window.GetWindow(this)
-            };
-            info.ShowDialog();
+            // InfoWindow.PrincipalImage
         }
     }
 }

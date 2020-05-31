@@ -31,7 +31,18 @@
                 <Setter Property="TextElement.FontWeight" Value="Medium"/>
                 <Setter Property="TextElement.FontSize" Value="14"/>
             </Style>
-            
+
+            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}" x:Key="CardButton">
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0" />
+                <Setter Property="materialDesign:ShadowAssist.ShadowEdges" Value="All" />
+                <Setter Property="materialDesign:RippleAssist.Feedback" Value="{DynamicResource PrimaryHueDarkBrush}" />
+                <Setter Property="materialDesign:RippleAssist.RippleOnTop" Value="True" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Height" Value="Auto" />
+                <Setter Property="Padding" Value="0" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

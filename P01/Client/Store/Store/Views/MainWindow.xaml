@@ -23,8 +23,12 @@
             <uc:BarWindowControl/>
             <uc:TitleBarWindow Title="Tienda"/>
 
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10 0 0 0">
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0 0 7 0">
                 <WrapPanel>
+                    <uc:PrevControl/>
+                    <uc:PrevControl/>
+                    <uc:PrevControl/>
+                    <uc:PrevControl/>
                     <uc:PrevControl/>
                     <uc:PrevControl/>
                     <uc:PrevControl/>
