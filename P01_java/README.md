@@ -1,21 +1,19 @@
-# Practice number 1
+# P01 | Servicio de transferencia de archivos
 
-## Building
-1. Open the folder with Intellij Idea 2019-2020.
-2. Build > Build artifacts > All
+El estudiante implementará una aplicación para el envío de múltiples archivos a través de la red haciendo uso de sockets de flujo.
 
-## Usage
-> WARN: First run Server.jar
-The `root_folder` is the main folder where are the files / folders.
-To run Server.jar:
-```
-cd out/artifacts/Server_jar
-java -jar Server.jar <root_folder>
-```
-Ro tun Client.jar
-```
-cd out/artifacts/Client_jar
-java -jar Client.jar <root_folder>
-```
-## Report
-report.pdf
+## Lo que se tiene que usar
+- Sockets de flujo.
+
+## Características
+- [ ]  Enviar archivos.
+- [ ]  Recibir archivos.
+- [ ]  Enviar directorios.
+- [ ]  Recibir directorios.
+- [ ]  Ver el árbol de directorios del servidor.
+
+## Objetivos deseables
+
+- [ ]  Interfaz gráfica
+
+## Detalles de la implementación

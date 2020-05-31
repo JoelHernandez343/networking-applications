@@ -36,6 +36,21 @@
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
 
+                        <StackPanel>
+                            <TextBox Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                                     VerticalAlignment="Top"
+                                     TextWrapping="Wrap"
+                                     MaxWidth="400"
+                                     materialDesign:HintAssist.Hint="Ingrese su correo" Margin="0 0 0 10"
+                                     x:Name="EmailBox"/>
+                            <TextBox Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                                     VerticalAlignment="Top"
+                                     TextWrapping="Wrap"
+                                     MaxWidth="400"
+                                     materialDesign:HintAssist.Hint="Ingrese su número de tarjeta"
+                                     x:Name="CardBox"/>
+                        </StackPanel>
+                        
                         <Button x:Name="BuyButton"
                                 Click="BuyButton_Click"
                                 Style="{DynamicResource MaterialDesignFlatButton}"

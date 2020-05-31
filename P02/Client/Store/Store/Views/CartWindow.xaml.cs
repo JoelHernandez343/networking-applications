@@ -26,6 +26,13 @@ namespace Store.Views
 
         private void BuyButton_Click(object sender, RoutedEventArgs e)
         {
+            var email = EmailBox.Text;
+            var card = CardBox.Text;
+            if (!int.TryParse(card, out int cardNumber))
+            {
+                MessageBox.Show("Ingrese solo números en el campo de número de tarjeta.");
+            }
+
 
         }
     }
