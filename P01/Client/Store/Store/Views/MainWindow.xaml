@@ -12,7 +12,7 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         WindowStartupLocation="CenterScreen"
         
-        Title="MainWindow" Height="600" Width="960">
+        Title="MainWindow" Height="700" Width="970">
     <Border BorderBrush="#424242" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
@@ -23,8 +23,12 @@
             <uc:BarWindowControl/>
             <uc:TitleBarWindow Title="Tienda"/>
 
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                <WrapPanel/>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10 0 0 0">
+                <WrapPanel>
+                    <uc:PrevControl/>
+                    <uc:PrevControl/>
+                    <uc:PrevControl/>
+                </WrapPanel>
             </ScrollViewer>
         </Grid>
     </Border>

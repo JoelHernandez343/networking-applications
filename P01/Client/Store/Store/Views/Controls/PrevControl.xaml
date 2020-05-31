@@ -5,8 +5,77 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Store.Views.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="300">
-    <Grid>
-        
-    </Grid>
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Style="{DynamicResource MaterialControl}"
+             FontFamily="{materialDesign:MaterialDesignFont}"
+             
+             d:DesignHeight="500" d:DesignWidth="350">
+
+    <UserControl.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}" x:Key="CardButton">
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0" />
+            <Setter Property="materialDesign:ShadowAssist.ShadowEdges" Value="All" />
+            <Setter Property="materialDesign:RippleAssist.Feedback" Value="{DynamicResource PrimaryHueDarkBrush}" />
+            <Setter Property="materialDesign:RippleAssist.RippleOnTop" Value="True" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Height" Value="Auto" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+    </UserControl.Resources>
+
+    <Button Style="{DynamicResource CardButton}" Margin="10" Width="290">
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Image Source="../../Assets/Images/rtx2.jpg"
+                       Stretch="UniformToFill"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Height="200"/>
+
+                <StackPanel Grid.Row="1" Margin="15">
+                    <TextBlock x:Name="TitleText"
+                               Text="Tarjeta de Video Nvidia GeForce RTX 2080Ti 11GB GDDR6"
+                               TextWrapping="Wrap"
+                               FontSize="19"
+                               FontWeight="DemiBold"
+                               Margin="0 0 0 10"/>
+                    <TextBlock x:Name="DescText"
+                               Text="Tarjeta de Video Nvidia GeForce RTX 2080Ti 11GB GDDR6 / Evga Black Edition - 11G-P4-2281-KR"
+                               TextWrapping="Wrap"
+                               Foreground="{DynamicResource MaterialDesignDarkForeground}"
+                               FontSize="13"
+                               FontWeight="Normal"/>
+                    <TextBlock x:Name="DiscountPriceText"
+                               Text="$ 22,500.00"
+                               Margin="0 10 0 2"
+                               TextDecorations="Strikethrough"
+                               Foreground="{DynamicResource MaterialDesignLightForeground}"/>
+                    <TextBlock x:Name="NormalPrice"
+                               Text="$ 18,950.00"
+                               Margin="0 0 0 10"
+                               FontSize="20"
+                               Foreground="{DynamicResource SecondaryAccentBrush}"/>
+                    <Separator Style="{DynamicResource MaterialDesignLightSeparator}"/>
+                    <TextBlock Text="Disponibilidad"
+                                Margin="0 0 0 8"
+                               Foreground="{DynamicResource MaterialDesignDarkForeground}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="QuantityText" Foreground="{DynamicResource MaterialDesignDarkForeground}" Text="2000"/>
+                        <TextBlock Text="/" Foreground="{DynamicResource MaterialDesignDarkForeground}" Margin="8 0"/>
+                        <TextBlock x:Name="ReservedText" Foreground="#E9E3A4" Text="12 Reservados"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+        </materialDesign:Card>
+    </Button>
 </UserControl>
