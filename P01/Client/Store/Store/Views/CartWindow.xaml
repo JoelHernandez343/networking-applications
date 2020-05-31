@@ -1,0 +1,64 @@
+﻿<Window x:Class="Store.Views.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Store.Views"
+        mc:Ignorable="d"
+        
+        xmlns:uc="clr-namespace:Store.Views.Controls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Style="{DynamicResource MaterialWindow}"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        WindowStartupLocation="CenterOwner"
+        
+        Title="CartWindow" Height="500" Width="900">
+    <Border BorderBrush="#424242" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <uc:BarWindowControl/>
+            <uc:TitleBarWindow Title="Carrito de compras"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Margin="10" materialDesign:ShadowAssist.ShadowDepth="Depth0" Width="300">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Button x:Name="BuyButton"
+                                Click="BuyButton_Click"
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                Content="COMPRAR"
+                                Grid.Row="1"
+                                Height="50"/>
+
+                    </Grid>
+                </materialDesign:Card>
+
+                <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <uc:CartItemControl/>
+                        <uc:CartItemControl/>
+                        <uc:CartItemControl/>
+                        <uc:CartItemControl/>
+                        <uc:CartItemControl/>
+                        <uc:CartItemControl/>
+                    </StackPanel>
+                </ScrollViewer>
+                
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>

@@ -22,6 +22,17 @@
 
             <uc:BarWindowControl/>
             <uc:TitleBarWindow Title="Tienda"/>
+            <Button x:Name="CartButton"
+                    Click="CartButton_Click"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
+                    Margin="0 0 20 0">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Cart" Margin="0 0 10 0"/>
+                    <TextBlock Text="Carrito de compras"/>
+                </StackPanel>
+            </Button>
 
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0 0 7 0">
                 <WrapPanel>

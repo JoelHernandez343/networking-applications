@@ -15,19 +15,18 @@ using System.Windows.Shapes;
 namespace Store.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CartWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CartWindow : Window
     {
-        public MainWindow()
+        public CartWindow()
         {
             InitializeComponent();
         }
 
-        private void CartButton_Click(object sender, RoutedEventArgs e)
+        private void BuyButton_Click(object sender, RoutedEventArgs e)
         {
-            var cart = new CartWindow { Owner = this };
-            cart.ShowDialog();
+
         }
     }
 }

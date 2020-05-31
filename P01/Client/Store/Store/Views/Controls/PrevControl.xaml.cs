@@ -27,10 +27,7 @@ namespace Store.Views.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var info = new InfoWindow
-            {
-                Owner = Window.GetWindow(this)
-            };
+            var info = new InfoWindow { Owner = Window.GetWindow(this) };
             info.ShowDialog();
         }
     }

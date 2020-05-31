@@ -10,24 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Store.Views
+namespace Store.Views.Controls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CartItemControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CartItemControl : UserControl
     {
-        public MainWindow()
+        public CartItemControl()
         {
             InitializeComponent();
         }
 
-        private void CartButton_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var cart = new CartWindow { Owner = this };
-            cart.ShowDialog();
+            var info = new InfoWindow { Owner = Window.GetWindow(this) };
+            info.ShowDialog();
         }
     }
 }
