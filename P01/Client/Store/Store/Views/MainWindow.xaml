@@ -10,9 +10,18 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Style="{DynamicResource MaterialWindow}"
         FontFamily="{materialDesign:MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
         
         Title="MainWindow" Height="450" Width="800">
     <Border BorderBrush="#424242" BorderThickness="1">
-        <uc:BarWindowControl/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <uc:BarWindowControl/>
+            <uc:TitleBarWindow Title="Tienda"/>
+        </Grid>
     </Border>
 </Window>

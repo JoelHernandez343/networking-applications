@@ -6,13 +6,23 @@
         xmlns:local="clr-namespace:Store.Views"
         mc:Ignorable="d"
         
+        xmlns:uc="clr-namespace:Store.Views.Controls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Style="{DynamicResource MaterialWindow}"
         FontFamily="{materialDesign:MaterialDesignFont}"
         ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
         
         Title="AboutWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Border BorderBrush="#424242" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <uc:BarWindowControl/>
+            <uc:TitleBarWindow Title="Sobre" HorizontalCenterTitle="True" ShowAbout="False"/>
+        </Grid>
+    </Border>
 </Window>

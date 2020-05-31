@@ -41,6 +41,11 @@ namespace Store.Views.Controls
                     else
                         MaxResIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.ArrowExpand;
                 };
+                if (Window.ResizeMode == ResizeMode.NoResize)
+                {
+                    MinButton.Visibility = Visibility.Collapsed;
+                    MaxResButton.Visibility = Visibility.Collapsed;
+                }
             };
 
         }
@@ -85,10 +90,10 @@ namespace Store.Views.Controls
             {
                 RestoreIfMove = false;
 
-                double percentHorizontal = e.GetPosition(this).X / ActualWidth;
+                double percentHorizontal = e.GetPosition(this).X / Window.ActualWidth;
                 double targetHorizontal = Window.RestoreBounds.Width * percentHorizontal;
 
-                double percentVertical = e.GetPosition(this).Y / ActualHeight;
+                double percentVertical = e.GetPosition(this).Y / Window.ActualHeight;
                 double targetVertical = Window.RestoreBounds.Height * percentVertical;
 
                 Window.WindowState = WindowState.Normal;
@@ -113,11 +118,7 @@ namespace Store.Views.Controls
             public int X;
             public int Y;
 
-            public POINT(int x, int y)
-            {
-                this.X = x;
-                this.Y = y;
-            }
+            public POINT(int x, int y) => (X, Y) = (x, y);
         }
 
         private void MaxResButton_Click(object sender, RoutedEventArgs e)

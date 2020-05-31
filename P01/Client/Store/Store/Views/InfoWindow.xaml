@@ -6,12 +6,22 @@
         xmlns:local="clr-namespace:Store.Views"
         mc:Ignorable="d"
         
+        xmlns:uc="clr-namespace:Store.Views.Controls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Style="{DynamicResource MaterialWindow}"
         FontFamily="{materialDesign:MaterialDesignFont}"
+        WindowStartupLocation="CenterOwner"
         
         Title="InfoWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Border BorderBrush="#424242" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <uc:BarWindowControl/>
+            <uc:TitleBarWindow Title="Descripción del producto"/>
+        </Grid>
+    </Border>
 </Window>

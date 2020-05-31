@@ -76,6 +76,9 @@
     <Compile Include="Views\Controls\PrevControl.xaml.cs">
       <DependentUpon>PrevControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\TitleBarWindow.xaml.cs">
+      <DependentUpon>TitleBarWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
@@ -120,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\PrevControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\TitleBarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
