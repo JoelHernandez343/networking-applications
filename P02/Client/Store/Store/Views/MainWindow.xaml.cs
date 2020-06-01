@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace Store.Views
         public MainWindow()
         {
             InitializeComponent();
+            ItemList.Initialize();
         }
 
         private void CartButton_Click(object sender, RoutedEventArgs e)

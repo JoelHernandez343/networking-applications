@@ -7,17 +7,19 @@ using System.Windows.Media.Imaging;
 
 namespace Store.Model
 {
-    class Item
+    public class Item
     {
-        public string name;
-        public string description;
-        public bool hasDiscount;
-        public double normalPrice;
-        public double discountPrice;
-        public int quantity;
+        public string Key { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool HasDiscount { get; set; }
+        public double NormalPrice { get; set; }
+        public double DiscountPrice { get; set; }
+        public int Quantity { get; set; }
+        public List<string> ImageUbications { get; set; }
 
-        public int reserved;
+        public int Reserved { get; set; }
 
-        public List<BitmapSource> images;
+        public List<BitmapSource> Images { get; set; }
     }
 }

@@ -33,7 +33,7 @@
                                FontSize="19"
                                FontWeight="DemiBold"
                                Margin="0 0 0 10"/>
-                    <TextBlock x:Name="DescShortText"
+                    <TextBlock x:Name="DescText"
                                Text="Tarjeta de Video Nvidia GeForce RTX 2080Ti 11GB GDDR6 / Evga Black Edition - 11G-P4-2281-KR"
                                TextWrapping="Wrap"
                                Foreground="{DynamicResource MaterialDesignDarkForeground}"

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,25 @@ namespace Store.Views.Controls
     /// </summary>
     public partial class PrevControl : UserControl
     {
+
+        private Item item;
+        public Item Item
+        {
+            get => item;
+            set
+            {
+                item = value;
+                TitleText.Text = item.Name;
+                DescText.Text = item.Description;
+
+                if (item.HasDiscount)
+                    DiscountPriceText.Text = item.DiscountPrice.ToString("C0");
+
+                NormalPrice.Text = item.NormalPrice.ToString("C0");
+                QuantityText.Text = item.Quantity.ToString();
+            }
+        }
+
         public PrevControl()
         {
             InitializeComponent();
