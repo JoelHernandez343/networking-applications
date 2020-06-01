@@ -1,4 +1,5 @@
-﻿using Store.Helpers;
+﻿using MaterialDesignThemes.Wpf;
+using Store.Helpers;
 using Store.Views.Controls;
 using System;
 using System.Collections.Generic;
@@ -56,7 +57,7 @@ namespace Store.Views
                 }
             }
 
-            TotalText.Text = total.ToString("C0");
+            TotalText.Text = total.ToString("C2");
 
             BuyButton.IsEnabled = !(items.Count == 0);
         }
@@ -80,14 +81,23 @@ namespace Store.Views
 
             if (!IsValidEmail(email))
             {
-                MessageBox.Show("Ingrese un correo válido.");
+                DialogHost.Show(new MaterialMessageControl 
+                { 
+                    Title = "Error en el correo", 
+                    Message = "Ingrese un correo válido."
+                });
                 return;
             }
 
             var card = CardBox.Text;
             if (!int.TryParse(card, out int cardNumber) || cardNumber < 0)
             {
-                MessageBox.Show("Ingrese solo números en el campo de número de tarjeta.");
+                DialogHost.Show(new MaterialMessageControl
+                {
+                    Title = "Error en el número de tarjeta",
+                    Message = "Ingrese solo números en el campo de número de tarjeta."
+                });
+                return;
             }
 
             Bought = true;

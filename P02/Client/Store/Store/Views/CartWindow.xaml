@@ -15,7 +15,9 @@
         Closing="Window_Closing"
         
         Title="CartWindow" Height="500" Width="900">
-    <Border BorderBrush="#424242" BorderThickness="1">
+
+    <materialDesign:DialogHost Style="{StaticResource MaterialDesignEmbeddedDialogHost}">
+        <Border BorderBrush="#424242" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
@@ -39,7 +41,7 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel>
-                            <StackPanel Margin="10">
+                            <StackPanel Margin="15">
                                 <TextBlock Text="Total:" Margin="0 0 0 10"/>
                                 <TextBlock Foreground="{DynamicResource PrimaryHueMidBrush}"
                                            Text="$4,000.00"
@@ -79,4 +81,5 @@
 
         </Grid>
     </Border>
+    </materialDesign:DialogHost>
 </Window>

@@ -1,4 +1,6 @@
-﻿using Store.Model;
+﻿using MaterialDesignThemes.Wpf;
+using Store.Model;
+using Store.Views.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,13 +61,21 @@ namespace Store.Views
         {
             if (!int.TryParse(ReservedBox.Text, out int NewReserved) || NewReserved < 0)
             {
-                MessageBox.Show("Ingrese una cantidad entera positiva o 0 en Cantidad Reservada.");
+                DialogHost.Show(new MaterialMessageControl
+                {
+                    Title = "Error en la cantidad reservada",
+                    Message = "Ingrese una cantidad entera positiva o 0 en Cantidad Reservada."
+                }, "InfoMaterialMessage");
                 return;
             }
 
             if (NewReserved > Item.Quantity)
             {
-                MessageBox.Show("No puede reservar más productos de los que hay disponibles.");
+                DialogHost.Show(new MaterialMessageControl
+                {
+                    Title = "Error en la cantidad reservada",
+                    Message = "No puede reservar más productos de los que hay disponibles."
+                }, "InfoMaterialMessage");
                 return;
             }
 

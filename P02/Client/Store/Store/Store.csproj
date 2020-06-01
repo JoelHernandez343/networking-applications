@@ -88,6 +88,9 @@
     <Compile Include="Views\Controls\CartItemControl.xaml.cs">
       <DependentUpon>CartItemControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\MaterialMessageControl.xaml.cs">
+      <DependentUpon>MaterialMessageControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\PrevControl.xaml.cs">
       <DependentUpon>PrevControl.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\CartItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\MaterialMessageControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
