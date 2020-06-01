@@ -1,4 +1,5 @@
 ﻿using Store.Helpers;
+using Store.Views.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,30 @@ namespace Store.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<PrevControl> items;
+
         public MainWindow()
         {
             InitializeComponent();
-            ItemList.Initialize();
+            UpdateAll();
+        }
+
+        public async void UpdateAll()
+        {
+            await ItemList.Update();
+            UpdateGrid();
+        }
+
+        public void UpdateGrid()
+        {
+            items = new List<PrevControl>();
+            MainWrapPanel.Children.Clear();
+
+            for (int i = 0; i < ItemList.List.Count; ++i)
+            {
+                items.Add(new PrevControl { Item = ItemList.List[i] });
+                MainWrapPanel.Children.Add(items[i]);
+            }
         }
 
         private void CartButton_Click(object sender, RoutedEventArgs e)

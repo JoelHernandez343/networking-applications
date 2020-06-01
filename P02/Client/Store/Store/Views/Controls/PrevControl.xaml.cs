@@ -33,11 +33,32 @@ namespace Store.Views.Controls
                 DescText.Text = item.Description;
 
                 if (item.HasDiscount)
-                    DiscountPriceText.Text = item.DiscountPrice.ToString("C0");
+                {
+                    NormalPrice.Visibility = Visibility.Visible;
 
-                NormalPrice.Text = item.NormalPrice.ToString("C0");
+                    NormalPrice.Text = item.NormalPrice.ToString("C2");
+                    DiscountPriceText.Text = item.DiscountPrice.ToString("C2");
+                } 
+                else
+                {
+                    NormalPrice.Visibility = Visibility.Collapsed;
+
+                    DiscountPriceText.Text = item.NormalPrice.ToString("C2");
+                }
+
                 QuantityText.Text = item.Quantity.ToString();
+                ReservedText.Text = item.Reserved.ToString();
             }
+        }
+
+        private void UpdateReserved()
+        {
+            ReservedText.Text = item.Reserved.ToString();
+        }
+
+        public int Reserved
+        {
+            get => Item.Reserved;
         }
 
         public PrevControl()
@@ -47,8 +68,13 @@ namespace Store.Views.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var info = new InfoWindow { Owner = Window.GetWindow(this) };
+            var info = new InfoWindow 
+            { 
+                Owner = Window.GetWindow(this),
+                Item = Item
+            };
             info.ShowDialog();
+            UpdateReserved();
         }
     }
 }

@@ -12,6 +12,8 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         WindowStartupLocation="CenterOwner"
         
+        Closing="Window_Closing"
+        
         Title="CartWindow" Height="500" Width="900">
     <Border BorderBrush="#424242" BorderThickness="1">
         <Grid>
@@ -37,6 +39,13 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel>
+                            <StackPanel Margin="10">
+                                <TextBlock Text="Total:" Margin="0 0 0 10"/>
+                                <TextBlock Foreground="{DynamicResource PrimaryHueMidBrush}"
+                                           Text="$4,000.00"
+                                           FontSize="35"
+                                           x:Name="TotalText"/>
+                            </StackPanel>
                             <TextBox Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
                                      VerticalAlignment="Top"
                                      TextWrapping="Wrap"
@@ -62,13 +71,7 @@
                 </materialDesign:Card>
 
                 <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
-                    <StackPanel>
-                        <uc:CartItemControl/>
-                        <uc:CartItemControl/>
-                        <uc:CartItemControl/>
-                        <uc:CartItemControl/>
-                        <uc:CartItemControl/>
-                        <uc:CartItemControl/>
+                    <StackPanel x:Name="CartListStack">
                     </StackPanel>
                 </ScrollViewer>
                 

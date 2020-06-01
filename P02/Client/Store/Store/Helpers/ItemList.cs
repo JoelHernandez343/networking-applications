@@ -11,9 +11,14 @@ namespace Store.Helpers
     {
         public static List<Item> List;
         
-        public static async void Initialize()
+        public static async Task Initialize()
         {
             List = await ItemHelper.GetItemsFromJson("Assets/Json/db.json");
+        }
+
+        public static async Task Update()
+        {
+            await Initialize();
         }
     }
 }

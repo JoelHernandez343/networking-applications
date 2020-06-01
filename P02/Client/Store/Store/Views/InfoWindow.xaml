@@ -72,18 +72,18 @@
                                FontWeight="DemiBold"
                                Margin="0 20"
                                Foreground="{DynamicResource PrimaryHueMidBrush}"/>
-                                <TextBlock x:Name="DescShortText"
+                                <TextBlock x:Name="DescText"
                                Text="Tarjeta de Video Nvidia GeForce RTX 2080Ti 11GB GDDR6 / Evga Black Edition - 11G-P4-2281-KR"
                                TextWrapping="Wrap"
                                Foreground="{DynamicResource MaterialDesignDarkForeground}"
                                FontSize="13"
                                FontWeight="Normal"/>
-                                <TextBlock x:Name="DiscountPriceText"
+                                <TextBlock x:Name="NormalPrice"
                                Text="$ 22,500.00"
                                Margin="0 10 0 2"
                                TextDecorations="Strikethrough"
                                Foreground="{DynamicResource MaterialDesignLightForeground}"/>
-                                <TextBlock x:Name="NormalPrice"
+                                <TextBlock x:Name="DiscountPriceText"
                                Text="$ 18,950.00"
                                Margin="0 0 0 10"
                                FontSize="20"
@@ -95,15 +95,17 @@
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock x:Name="QuantityText" Foreground="{DynamicResource MaterialDesignDarkForeground}" Text="2000"/>
                                     <TextBlock Text="/" Foreground="{DynamicResource MaterialDesignDarkForeground}" Margin="8 0"/>
-                                    <TextBlock x:Name="ReservedText" Foreground="#E9E3A4" Text="12 Reservados" Margin="0 0 0 10"/>
+                                    <TextBlock x:Name="ReservedText" Foreground="#E9E3A4" Text="12" Margin="0 0 0 10"/>
+                                    <TextBlock Foreground="#E9E3A4" Text=" reservados" Margin="0 0 0 10"/>
                                 </StackPanel>
                                 <Separator Style="{DynamicResource MaterialDesignLightSeparator}"/>
                                 <TextBox Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
-                                 VerticalAlignment="Top"
-                                 AcceptsReturn="True"
-                                 TextWrapping="Wrap"
-                                 MaxWidth="400"
-                                 materialDesign:HintAssist.Hint="Cantidad reservada"/>
+                                         VerticalAlignment="Top"
+                                         AcceptsReturn="True"
+                                         TextWrapping="Wrap"
+                                         MaxWidth="400"
+                                         materialDesign:HintAssist.Hint="Cantidad reservada"
+                                         x:Name="ReservedBox"/>
                             </StackPanel>
 
                             <Button Style="{DynamicResource MaterialDesignFlatButton}"

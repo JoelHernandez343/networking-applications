@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,43 @@ namespace Store.Views.Controls
     /// </summary>
     public partial class CartItemControl : UserControl
     {
+        private Item item;
+        public Item Item
+        {
+            get => item;
+            set
+            {
+                item = value;
+                TitleText.Text = item.Name;
+
+                if (item.HasDiscount)
+                {
+                    NormalPrice.Visibility = Visibility.Visible;
+
+                    NormalPrice.Text = item.NormalPrice.ToString("C2");
+                    DiscountPriceText.Text = item.DiscountPrice.ToString("C2");
+                }
+                else
+                {
+                    NormalPrice.Visibility = Visibility.Collapsed;
+
+                    DiscountPriceText.Text = item.NormalPrice.ToString("C2");
+                }
+
+                QuantityText.Text = item.Quantity.ToString();
+                ReservedText.Text = item.Reserved.ToString();
+            }
+        }
+
+        public int Reserved
+        {
+            get => Item.Reserved;
+            set
+            {
+                ReservedText.Text = item.Reserved.ToString();
+            }
+        }
+
         public CartItemControl()
         {
             InitializeComponent();
@@ -27,8 +65,16 @@ namespace Store.Views.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var info = new InfoWindow { Owner = Window.GetWindow(this) };
+            var window = Window.GetWindow(this);
+
+            var info = new InfoWindow 
+            {
+                Owner = window,
+                Item = Item
+            };
             info.ShowDialog();
+
+            (window as CartWindow).UpdateAll();
         }
     }
 }
