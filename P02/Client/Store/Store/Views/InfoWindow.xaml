@@ -49,7 +49,7 @@
                                   HorizontalScrollBarVisibility="Auto"
                                   VerticalContentAlignment="Center"
                                   Grid.Row="1">
-                            <StackPanel Orientation="Horizontal" Margin="10">
+                            <StackPanel Orientation="Horizontal" Margin="10" x:Name="CarrouselStack">
                                 <uc:CarruselItemControl/>
                                 <uc:CarruselItemControl/>
                                 <uc:CarruselItemControl/>

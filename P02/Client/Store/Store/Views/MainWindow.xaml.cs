@@ -26,15 +26,10 @@ namespace Store.Views
         public MainWindow()
         {
             InitializeComponent();
-            InitializeServerConnection();
-
-            // UpdateAll();
+            InitAll();
         }
 
-        private void ErrorConnectionButton_Click(object sender, RoutedEventArgs e)
-        {
-            InitializeServerConnection();
-        }
+        private void ErrorConnectionButton_Click(object sender, RoutedEventArgs e) => InitAll();
 
         public void HideFirstElements()
         {
@@ -42,7 +37,7 @@ namespace Store.Views
             ForceUpdateButton.Visibility = Visibility.Collapsed;
         }
 
-        public async void InitializeServerConnection()
+        public async void InitAll()
         {
             HideFirstElements();
 
@@ -61,13 +56,11 @@ namespace Store.Views
             NoConnection.Visibility = Visibility.Collapsed;
             MainGrid.Visibility = Visibility.Visible;
             ForceUpdateButton.Visibility = Visibility.Visible;
+
+            UpdateAll();
         }
 
-
-
-
-
-
+        private void ForceUpdateButton_Click(object sender, RoutedEventArgs e) => UpdateAll();
 
         public async void UpdateAll()
         {
@@ -93,11 +86,9 @@ namespace Store.Views
             cart.ShowDialog();
         }
 
-        private void ForceUpdateButton_Click(object sender, RoutedEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            
+            ServerConnection.Close();
         }
-
-        
     }
 }

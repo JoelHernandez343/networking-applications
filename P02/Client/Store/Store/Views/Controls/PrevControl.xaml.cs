@@ -48,6 +48,8 @@ namespace Store.Views.Controls
 
                 QuantityText.Text = item.Quantity.ToString();
                 ReservedText.Text = item.Reserved.ToString();
+
+                MainImage.Source = item.Images[0];
             }
         }
 

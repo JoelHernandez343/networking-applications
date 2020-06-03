@@ -13,12 +13,21 @@ namespace Store.Helpers
         
         public static async Task Initialize()
         {
-            List = await ItemHelper.GetItemsFromJson("Assets/Json/db.json");
+            List = await ServerConnection.GetItemsAsync();
+            await GetImages();
         }
 
         public static async Task Update()
         {
             await Initialize();
+        }
+
+        static async Task GetImages()
+        {
+            foreach (Item item in List)
+            {
+                item.Images = await ServerConnection.GetImagesAsync(item);
+            }
         }
     }
 }

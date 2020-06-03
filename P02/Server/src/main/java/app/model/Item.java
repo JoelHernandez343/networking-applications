@@ -1,5 +1,8 @@
 package app.model;
 
+import com.google.gson.annotations.Expose;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Item {
@@ -10,5 +13,5 @@ public class Item {
     public double NormalPrice;
     public double DiscountPrice;
     public int Quantity;
-    public List<String> ImageUbications;
+    public List<String> ImageNames;
 }

@@ -1,5 +1,6 @@
 ﻿using MaterialDesignThemes.Wpf;
 using Store.Helpers;
+using Store.Model;
 using Store.Views.Controls;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace Store.Views
     public partial class CartWindow : Window
     {
         private bool Bought = false;
+        private double Total;
 
         public CartWindow()
         {
@@ -37,27 +39,21 @@ namespace Store.Views
             items = new List<CartItemControl>();
             CartListStack.Children.Clear();
 
-            double total = 0.0;
+            Total = 0.0;
 
-            for (int i = 0, j = 0; i < ItemList.List.Count; ++i)
+            int i = 0;
+            foreach (var item in ItemList.List)
             {
-                if (ItemList.List[i].Reserved > 0)
+                if (item.Reserved > 0)
                 {
-                    items.Add(new CartItemControl { Item = ItemList.List[i] });
-                    CartListStack.Children.Add(items[j++]);
+                    items.Add(new CartItemControl { Item = item });
+                    CartListStack.Children.Add(items[i++]);
 
-                    if (ItemList.List[i].HasDiscount)
-                    {
-                        total += ItemList.List[i].DiscountPrice * ItemList.List[i].Reserved;
-                    }
-                    else
-                    {
-                        total += ItemList.List[i].NormalPrice * ItemList.List[i].Reserved;
-                    }
+                    Total += item.Reserved * (item.HasDiscount ? item.DiscountPrice : item.NormalPrice);
                 }
             }
 
-            TotalText.Text = total.ToString("C2");
+            TotalText.Text = Total.ToString("C2");
 
             BuyButton.IsEnabled = !(items.Count == 0);
         }
@@ -75,13 +71,13 @@ namespace Store.Views
             }
         }
 
-        private void BuyButton_Click(object sender, RoutedEventArgs e)
+        private async void BuyButton_Click(object sender, RoutedEventArgs e)
         {
             var email = EmailBox.Text;
 
             if (!IsValidEmail(email))
             {
-                DialogHost.Show(new MaterialMessageControl 
+                await DialogHost.Show(new MaterialMessageControl 
                 { 
                     Title = "Error en el correo", 
                     Message = "Ingrese un correo válido."
@@ -92,13 +88,30 @@ namespace Store.Views
             var card = CardBox.Text;
             if (!int.TryParse(card, out int cardNumber) || cardNumber < 0)
             {
-                DialogHost.Show(new MaterialMessageControl
+                await DialogHost.Show(new MaterialMessageControl
                 {
                     Title = "Error en el número de tarjeta",
                     Message = "Ingrese solo números en el campo de número de tarjeta."
                 });
                 return;
             }
+
+            var purchased = new List<PurchaseUpdate>();
+            foreach (var item in ItemList.List)
+            {
+                if (item.Reserved > 0)
+                {
+                    purchased.Add(new PurchaseUpdate { Key = item.Key, Purchased = item.Reserved });
+                }
+            }
+
+            await ServerConnection.MakePurchase(email, cardNumber, Total, purchased);
+
+            await DialogHost.Show(new MaterialMessageControl
+            {
+                Title = "Compra exitosa",
+                Message = $"Se realizó una compra exitosa por {TotalText.Text}."
+            }) ;
 
             Bought = true;
             Close();

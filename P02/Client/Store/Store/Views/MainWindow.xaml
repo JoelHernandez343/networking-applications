@@ -12,6 +12,8 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         WindowStartupLocation="CenterScreen"
         
+        Closing="Window_Closing"
+        
         Title="MainWindow" Height="700" Width="970">
     <Border BorderBrush="#424242" BorderThickness="1">
         <Grid>

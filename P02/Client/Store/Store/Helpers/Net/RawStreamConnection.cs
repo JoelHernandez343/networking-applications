@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Store.Helpers.Net
 {
@@ -74,6 +78,46 @@ namespace Store.Helpers.Net
             Stream.Read(Buffer, 0, Buffer.Length);
 
             return System.Text.Encoding.ASCII.GetString(Buffer);
+        }
+
+        public BitmapImage ReadImageFile()
+        {
+            var imageName = ReadUTF();
+            var length = ReadLong();
+
+            Buffer = new byte[length];
+            int i = 0;
+
+            long received = 0;
+            while (received < length)
+            {
+                var buffer = new byte[4096];
+                int read = Stream.Read(buffer, 0, 4096);
+
+                received += read;
+
+                for (int j = 0; j < read; ++j, ++i)
+                    Buffer[i] = buffer[j];
+
+            }
+
+            Console.WriteLine($"Received {imageName}.");
+
+            BitmapImage image = new BitmapImage();
+            using (MemoryStream stream = new MemoryStream(Buffer))
+            {
+                stream.Position = 0;
+                image.BeginInit();
+                image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.UriSource = null;
+                image.StreamSource = stream;
+                image.EndInit();
+            }
+
+            image.Freeze();
+
+            return image;
         }
     }
 }

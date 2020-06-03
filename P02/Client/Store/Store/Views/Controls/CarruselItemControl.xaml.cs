@@ -22,15 +22,27 @@ namespace Store.Views.Controls
     {
         InfoWindow InfoWindow;
 
+        public BitmapImage Image
+        {
+            get => (BitmapImage)MainImage.Source;
+            set
+            {
+                MainImage.Source = value;
+            }    
+        }
+
         public CarruselItemControl()
         {
             InitializeComponent();
-            InfoWindow = Window.GetWindow(this) as InfoWindow;
+            Loaded += (s, e) =>
+            {
+                InfoWindow = Window.GetWindow(this) as InfoWindow;
+            };
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // InfoWindow.PrincipalImage
+            InfoWindow.PrincipalImage.Source = Image;
         }
     }
 }

@@ -49,6 +49,16 @@ namespace Store.Views
                 QuantityText.Text = item.Quantity.ToString();
                 ReservedText.Text = item.Reserved.ToString();
                 ReservedBox.Text = item.Reserved.ToString();
+
+                // Images
+                PrincipalImage.Source = item.Images[0];
+
+                CarrouselStack.Children.Clear();
+                foreach (var image in item.Images)
+                {
+                    CarrouselStack.Children.Add(new CarruselItemControl { Image = image });
+                }
+
             }
         }
 

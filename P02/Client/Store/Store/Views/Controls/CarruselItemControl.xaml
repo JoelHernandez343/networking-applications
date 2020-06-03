@@ -19,6 +19,7 @@
         <Image Source="../../Assets/Images/rtx2.jpg"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Stretch="UniformToFill"/>
+               Stretch="UniformToFill"
+               x:Name="MainImage"/>
     </Button>
 </UserControl>

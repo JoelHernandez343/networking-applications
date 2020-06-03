@@ -1,30 +1,44 @@
 ﻿[
     {
         "Key": "0001",
-        "Name": "Tarjeta de Video Nvidia GeForce RTX 2080Ti 11GB GDDR6 / Evga Black Edition - 11G-P4-2281-KR",
-        "Description": "Tarjeta de Video Nvidia GeForce RTX 2080Ti 11GB GDDR6 / Evga Black Edition - 11G-P4-2281-KR",
+        "Name": "Tarjeta de Video Nvidia GeForce RTX 2080Ti",
+        "Description": "Tarjeta de Video Nvidia GeForce RTX 2080Ti 11GB GDDR6 / ASUS ROG-STRIX-RTX2080TI-O11G-GAMING",
         "HasDiscount": false,
-        "NormalPrice": 28999.00,
-        "DiscountPrice": 21000.00,
+        "NormalPrice": 34610.90,
+        "DiscountPrice": 0.0,
         "Quantity": 2000,
-        "ImageUbications": [
-            "./image01.jpg",
-            "./image02.jpg",
-            "./image03.jpg"
+        "ImageNames": [
+            "01.jpg",
+            "02.jpg",
+            "03.jpg"
         ]
     },
     {
         "Key": "0002",
-        "Name": "Memoria RAM 8GB DDR4 TeamGroup T-Force Delta RGB 3000Mhz Negra",
-        "Description": "Memoria RAM 8GB DDR4 TeamGroup T-Force Delta RGB 3000Mhz Negra / TF3D48G3000HC16C01",
+        "Name": "Memoria RAM 16GB DDR4 TeamGroup T-Force Delta RGB TUF",
+        "Description": "Memoria RAM 16GB DDR4 TeamGroup T-Force Delta RGB TUF Alliance 2933Mhz / Kit 2x8GB / Negra-Amarillo / TF9D416G2933HC16CDC01",
         "HasDiscount": true,
-        "NormalPrice": 1515.98,
-        "DiscountPrice": 1053.26,
+        "NormalPrice": 2107.75,
+        "DiscountPrice": 1921.66,
         "Quantity": 120,
-        "ImageUbications": [
-            "./image01.jpg",
-            "./image02.jpg",
-            "./image03.jpg"
+        "ImageNames": [
+            "01.jpg",
+            "02.jpg",
+            "03.jpg"
+        ]
+    },
+    {
+        "Key": "0003",
+        "Name": "Unidad de estado solido SSD 256GB 2.5",
+        "Description": "Unidad de estado solido SSD 256GB 2.5 SATA3 Kingston KC600 - SKC600/256G",
+        "HasDiscount": false,
+        "NormalPrice": 1189.73,
+        "DiscountPrice": 0.0,
+        "Quantity": 200,
+        "ImageNames": [
+            "01.jpg",
+            "02.jpg",
+            "03.jpg"
         ]
     }
 ]

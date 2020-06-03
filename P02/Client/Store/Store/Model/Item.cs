@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace Store.Model
@@ -16,10 +18,11 @@ namespace Store.Model
         public double NormalPrice { get; set; }
         public double DiscountPrice { get; set; }
         public int Quantity { get; set; }
-        public List<string> ImageUbications { get; set; }
+        public List<string> ImageNames { get; set; }
 
+        [JsonIgnore]
         public int Reserved { get; set; }
-
-        public List<BitmapSource> Images { get; set; }
+        [JsonIgnore]
+        public List<BitmapImage> Images { get; set; }
     }
 }

@@ -25,7 +25,8 @@
                        Stretch="UniformToFill"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Height="200"/>
+                       Height="200"
+                       x:Name="MainImage"/>
 
                 <StackPanel Grid.Row="1" Margin="15">
                     <TextBlock x:Name="TitleText"

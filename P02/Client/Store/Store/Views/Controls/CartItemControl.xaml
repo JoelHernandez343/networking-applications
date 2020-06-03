@@ -22,7 +22,8 @@
             <Image Source="../../Assets/Images/rtx2.jpg"
                        Stretch="UniformToFill"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
+                       VerticalAlignment="Center"
+                   x:Name="MainImage"/>
         </Grid>
 
         <Grid Grid.Column="1">
