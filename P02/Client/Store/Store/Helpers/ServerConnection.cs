@@ -93,8 +93,11 @@ namespace Store.Helpers
 
         public static void Close()
         {
-            Stream.Write((int)Instruction.DISCONNECT);
-            Stream.Close();
+            if (Stream != null)
+            {
+                Stream.Write((int)Instruction.DISCONNECT);
+                Stream.Close();
+            }
         }
         
     }
