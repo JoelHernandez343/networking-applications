@@ -72,6 +72,8 @@
     </Compile>
     <Compile Include="Helpers\ItemHelper.cs" />
     <Compile Include="Helpers\ItemList.cs" />
+    <Compile Include="Helpers\Net\RawStreamConnection.cs" />
+    <Compile Include="Helpers\ServerConnection.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Views\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>

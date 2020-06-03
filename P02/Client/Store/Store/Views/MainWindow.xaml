@@ -22,22 +22,67 @@
 
             <uc:BarWindowControl/>
             <uc:TitleBarWindow Title="Tienda"/>
-            <Button x:Name="CartButton"
-                    Click="CartButton_Click"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Style="{DynamicResource MaterialDesignFlatButton}"
-                    Margin="0 0 20 0">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Cart" Margin="0 0 10 0"/>
-                    <TextBlock Text="Carrito de compras"/>
-                </StackPanel>
-            </Button>
 
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0 0 7 0">
-                <WrapPanel x:Name="MainWrapPanel">
-                </WrapPanel>
-            </ScrollViewer>
+            <StackPanel Margin="0 0 20 0" 
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center">
+                <Button x:Name="ForceUpdateButton"
+                        Click="ForceUpdateButton_Click"
+                        Style="{DynamicResource MaterialDesignFlatButton}"
+                        Margin="0 0 10 0">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Refresh" Margin="0 0 10 0" Foreground="{DynamicResource MaterialDesignDarkForeground}"/>
+                        <TextBlock Text="Actualizar" Foreground="{DynamicResource MaterialDesignDarkForeground}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="CartButton"
+                    Click="CartButton_Click"
+                    Style="{DynamicResource MaterialDesignFlatButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Cart" Margin="0 0 10 0"/>
+                        <TextBlock Text="Carrito de compras"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <Grid Grid.Row="1" x:Name="MainGrid">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0 0 7 0">
+                    <WrapPanel x:Name="MainWrapPanel"/>
+                </ScrollViewer>
+            </Grid>
+            
+            <Grid x:Name="NoConnection" Grid.RowSpan="2">
+                <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Width="250"
+                        Height="250"
+                        x:Name="ErrorConnectionButton"
+                        Click="ErrorConnectionButton_Click">
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="AlertRemove"
+                                                 Foreground="#888484"
+                                                 HorizontalAlignment="Center"
+                                                 Height="80"
+                                                 Width="80"
+                                                 Margin="10"/>
+                        <TextBlock Text="Sin conexión"
+                                   Style="{DynamicResource MaterialDesignHeadline5TextBlock}"
+                                   Foreground="#888484"
+                                   HorizontalAlignment="Center"
+                                   Margin="0 10"
+                                   x:Name="ErrorConnectionTitle"/>
+                        <TextBlock Text="Presione este botón para intentar de nuevo"
+                                   FontSize="13"
+                                   Foreground="#888484"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   x:Name="ErrorConnectionMessage"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
         </Grid>
     </Border>
 </Window>

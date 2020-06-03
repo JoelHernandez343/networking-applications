@@ -1,0 +1,30 @@
+[
+    {
+        "Key": "0001",
+        "Name": "Tarjeta de Video Nvidia GForce RTX 2080Ti 11GB GDDR6 / Evga Black Edition - 11G-P4-2281-KR",
+        "Description": "Tarjeta de Video Nvidia GeForce RTX 2080Ti 11GB GDDR6 / Evga Black Edition - 11G-P4-2281-KR",
+        "HasDiscount": false,
+        "NormalPrice": 28999.00,
+        "DiscountPrice": 21000.00,
+        "Quantity": 2000,
+        "ImageUbications": [
+            "./image01.jpg",
+            "./image02.jpg",
+            "./image03.jpg"
+        ]
+    },
+    {
+        "Key": "0002",
+        "Name": "Memoria RAM 8GB DDR4 TeamGroup T-Force Delta RGB 3000Mhz Negra",
+        "Description": "Memoria RAM 8GB DDR4 TeamGroup T-Force Delta RGB 3000Mhz Negra / TF3D48G3000HC16C01",
+        "HasDiscount": true,
+        "NormalPrice": 1515.98,
+        "DiscountPrice": 1053.26,
+        "Quantity": 120,
+        "ImageUbications": [
+            "./image01.jpg",
+            "./image02.jpg",
+            "./image03.jpg"
+        ]
+    }
+]

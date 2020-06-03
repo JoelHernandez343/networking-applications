@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Store.Helpers.Net
 {
-    class StreamConnection
+    class RawStreamConnection
     {
         readonly TcpClient Client;
         readonly NetworkStream Stream;
         byte[] Buffer;
 
-        public StreamConnection(string hostname, int port)
+        public RawStreamConnection(string hostname, int port)
         {
             Client = new TcpClient(hostname, port);
             Stream = Client.GetStream();

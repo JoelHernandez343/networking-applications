@@ -26,8 +26,48 @@ namespace Store.Views
         public MainWindow()
         {
             InitializeComponent();
-            UpdateAll();
+            InitializeServerConnection();
+
+            // UpdateAll();
         }
+
+        private void ErrorConnectionButton_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeServerConnection();
+        }
+
+        public void HideFirstElements()
+        {
+            MainGrid.Visibility = Visibility.Collapsed;
+            ForceUpdateButton.Visibility = Visibility.Collapsed;
+        }
+
+        public async void InitializeServerConnection()
+        {
+            HideFirstElements();
+
+            ErrorConnectionMessage.Text = "Conectando con 127.0.0.1 en 1234";
+            ErrorConnectionTitle.Text = "Conectando";
+            ErrorConnectionButton.IsEnabled = false;
+
+            if (!(await Task.Run(() => ServerConnection.Initialize("127.0.0.1", 1234))))
+            {
+                ErrorConnectionMessage.Text = "Presione este botón para intentar de nuevo";
+                ErrorConnectionTitle.Text = "Sin conexión";
+                ErrorConnectionButton.IsEnabled = true;
+                return;
+            }
+
+            NoConnection.Visibility = Visibility.Collapsed;
+            MainGrid.Visibility = Visibility.Visible;
+            ForceUpdateButton.Visibility = Visibility.Visible;
+        }
+
+
+
+
+
+
 
         public async void UpdateAll()
         {
@@ -52,5 +92,12 @@ namespace Store.Views
             var cart = new CartWindow { Owner = this };
             cart.ShowDialog();
         }
+
+        private void ForceUpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        
     }
 }
