@@ -1,5 +1,6 @@
 ﻿using MaterialDesignThemes.Wpf;
 using Store.Helpers;
+using Store.Helpers.Pdf;
 using Store.Model;
 using Store.Views.Controls;
 using System;
@@ -110,8 +111,17 @@ namespace Store.Views
             await DialogHost.Show(new MaterialMessageControl
             {
                 Title = "Compra exitosa",
-                Message = $"Se realizó una compra exitosa por {TotalText.Text}."
+                Message = $"Se realizó una compra exitosa por {TotalText.Text}. Generando pdf."
             }) ;
+
+            if (await PdfHelper.CreateAndSaveFile(email, cardNumber))
+            {
+                await DialogHost.Show(new MaterialMessageControl
+                {
+                    Title = "Ticket generado y guardado",
+                    Message = $"Se guardó su ticket."
+                });
+            }
 
             Bought = true;
             Close();
