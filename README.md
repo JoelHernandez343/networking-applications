@@ -2,7 +2,7 @@
 
 ## :closed_book: Lista de prácticas
 - [ ] [P01 | Servicio de transferencia de archivos](P01/README.md)
-- [ ] [P02 | Tiendita](P02/README.md)
+- [x] [P02 | Tiendita](P02/README.md)
 - [ ] P03
 - [ ] P04
 - [ ] P05
