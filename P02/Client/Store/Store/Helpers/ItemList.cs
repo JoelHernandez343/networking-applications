@@ -9,8 +9,8 @@ namespace Store.Helpers
 {
     class ItemList
     {
-        public static List<Item> List;
-        
+        public static List<Item> List = new List<Item>();
+
         public static async Task Initialize()
         {
             List = await ServerConnection.GetItemsAsync();
